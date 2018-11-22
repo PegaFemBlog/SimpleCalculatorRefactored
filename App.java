@@ -21,8 +21,12 @@ public class App {
       //Then the UI should display the menu again. The user must choose
       // the exit option to exit and program must print a thank you message
       
-      Scanner sc = new Scanner(System.in);
-      int total = 0;
+        boolean keepGoing = true; 
+        
+        do {
+            
+        Scanner sc = new Scanner(System.in);
+        int total = 0;
     
         System.out.println("What operation would you like to perform? \n");
       
@@ -30,20 +34,21 @@ public class App {
         System.out.println("\t Please enter - for subtraction");
         System.out.println("\t Please enter * for multiplication");
         System.out.println("\t Please enter / for division");
-        System.out.println("\t Or to quit, please enter 5");
+        System.out.println("\t Or to quit, please enter Q");
         
         System.out.println("\n Please enter your selection: ");
             String selection = sc.nextLine();
         
-        if (selection != "5" ) {
-            
+        if(selection.equalsIgnoreCase("Q"))  {
+                keepGoing = false;
+        } else {
+                   
         System.out.println("Please enter first number: ");
             int a = sc.nextInt();
         
         System.out.println("Please enter second number: ");
             int b = sc.nextInt();
         
-        boolean keepGoing = true;        
         switch (selection) {
             case "+":
                 total = SimpleCalc.add(a, b);
@@ -58,15 +63,16 @@ public class App {
                 total = SimpleCalc.divide(a, b);
                 break;
             default:
-                total = 0;
                 keepGoing = false;
                 break;   
         } 
-           System.out.println("Your total is: "+ total);
-            System.out.println("Thaks and come again!");
+           
+        System.out.println("Your total is: "+ total);
     } 
-        else {
-            System.out.println("Thanks for stopping by");
-    } 
+        }
+        while (keepGoing ); 
+        System.out.println("Thanks for stopping by");
     }
-}
+}   
+       
+
