@@ -4,11 +4,55 @@
  * and open the template in the editor.
  */
 package com.mycompany.simplecalculatortwo;
+import java.util.Scanner;
 
 /**
  *
  * @author bacag
  */
 public class App {
+    public static int main(String[] args) {
+      //App class should be the UI to the user
+      // should handle the user input
+      //must use SimpleCalc() to perform all math operations
+      //Should give the user a choice of what operation to perform
+      //After selecting the operation, the program should ask the user 
+      //to enter the two operands and display results of the calculation
+      //Then the UI should display the menu again. The user must choose
+      // the exit option to exit and program must print a thank you message
+      
+      Scanner sc = new Scanner(System.in);
     
+        System.out.println("What operation would you like to perform? \n");
+      
+        System.out.println("\t + for addition");
+        System.out.println("\t - for subtraction");
+        System.out.println("\t * for multiplication");
+        System.out.println("\t / for division");
+        System.out.println("\t Please enter:");
+        System.out.println("\t Or to quit, enter 5");
+        System.out.println("Please enter your selection: ");
+            String selection = sc.nextLine();
+        
+        System.out.println("Please enter first number: ");
+            int a = sc.nextInt();
+        
+        System.out.println("Please enter second number: ");
+            int b = sc.nextInt();
+        
+        boolean keepGoing = true;        
+        switch (selection) {
+            case "+":
+                return SimpleCalc.add(a, b);
+            case "-":
+                return SimpleCalc.subtract(a, b);
+            case "*":
+                return SimpleCalc.multiply(a, b);
+            case "/":
+                return SimpleCalc.divide(a, b);
+            case "5":
+                keepGoing = false;
+                break;   
+        }
+    } 
 }

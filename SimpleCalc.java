@@ -9,7 +9,7 @@ package com.mycompany.simplecalculatortwo;
  *
  * @author bacag
  */
-class SimpleCalc {
+public class SimpleCalc {
     
     
     public static int add(int a, int b) {
