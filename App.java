@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author bacag
  */
 public class App {
-    public static int main(String[] args) {
+    public static void main(String[] args) {
       //App class should be the UI to the user
       // should handle the user input
       //must use SimpleCalc() to perform all math operations
@@ -22,18 +22,21 @@ public class App {
       // the exit option to exit and program must print a thank you message
       
       Scanner sc = new Scanner(System.in);
+      int total = 0;
     
         System.out.println("What operation would you like to perform? \n");
       
-        System.out.println("\t + for addition");
-        System.out.println("\t - for subtraction");
-        System.out.println("\t * for multiplication");
-        System.out.println("\t / for division");
-        System.out.println("\t Please enter:");
-        System.out.println("\t Or to quit, enter 5");
-        System.out.println("Please enter your selection: ");
+        System.out.println("\t Please enter + for addition");
+        System.out.println("\t Please enter - for subtraction");
+        System.out.println("\t Please enter * for multiplication");
+        System.out.println("\t Please enter / for division");
+        System.out.println("\t Or to quit, please enter 5");
+        
+        System.out.println("\n Please enter your selection: ");
             String selection = sc.nextLine();
         
+        if (selection != "5" ) {
+            
         System.out.println("Please enter first number: ");
             int a = sc.nextInt();
         
@@ -43,16 +46,27 @@ public class App {
         boolean keepGoing = true;        
         switch (selection) {
             case "+":
-                return SimpleCalc.add(a, b);
+                total = SimpleCalc.add(a, b);
+                break;
             case "-":
-                return SimpleCalc.subtract(a, b);
+                total = SimpleCalc.subtract(a, b);
+                break;
             case "*":
-                return SimpleCalc.multiply(a, b);
+                total = SimpleCalc.multiply(a, b);
+                break;
             case "/":
-                return SimpleCalc.divide(a, b);
-            case "5":
+                total = SimpleCalc.divide(a, b);
+                break;
+            default:
+                total = 0;
                 keepGoing = false;
                 break;   
-        }
+        } 
+           System.out.println("Your total is: "+ total);
+            System.out.println("Thaks and come again!");
     } 
+        else {
+            System.out.println("Thanks for stopping by");
+    } 
+    }
 }
